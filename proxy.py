@@ -22,7 +22,7 @@ def help():
   """)
 
 def loading():
-    for _ in range(15):
+    for _ in range(30):
         sys.stdout.write("\r‣ Downloading proxies [-]")
         sys.stdout.flush()
         time.sleep(0.1)
