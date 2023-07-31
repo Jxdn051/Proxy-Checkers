@@ -7,7 +7,6 @@ from downloader.down_proxy import DownloadProxies
 from scanning.proxy_scan import check_socks, check_list
 
 print("@Remake by Jxdn\n[!] Downloader Proxy And Scanning")
-    set_printed()
 
 def help():
   print("""
