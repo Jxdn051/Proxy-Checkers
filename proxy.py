@@ -6,27 +6,7 @@ import time
 from downloader.down_proxy import DownloadProxies
 from scanning.proxy_scan import check_socks, check_list
 
-def is_printed():
-    return os.path.exists("printed.txt")
-
-def set_printed():
-    with open("printed.txt", "w") as f:
-        f.write("printed")
-
-if os.path.exists("printed.txt"):
-    os.remove("printed.txt")
-    
-if not is_printed():
-    print("""@Remake by Jxdn
-██████╗░██████╗░░█████╗░██╗░░██╗██╗░░░██╗
-██╔══██╗██╔══██╗██╔══██╗╚██╗██╔╝╚██╗░██╔╝
-██████╔╝██████╔╝██║░░██║░╚███╔╝░░╚████╔╝░
-██╔═══╝░██╔══██╗██║░░██║░██╔██╗░░░╚██╔╝░░
-██║░░░░░██║░░██║╚█████╔╝██╔╝╚██╗░░░██║░░░
-╚═╝░░░░░╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝░░░╚═╝░░░
-[•] Thanks for L330n123
-[!] Downloader Proxy And Scanning
-""")
+print("@Remake by Jxdn\n[!] Downloader Proxy And Scanning")
     set_printed()
 
 def help():
@@ -43,7 +23,7 @@ def help():
   """)
 
 def loading():
-    for _ in range(5):
+    for _ in range(15):
         sys.stdout.write("\r‣ Downloading proxies [-]")
         sys.stdout.flush()
         time.sleep(0.1)
@@ -62,7 +42,7 @@ def end_loading(result):
     sys.stdout.flush()
 
 if len(sys.argv) < 4:
-    print("Usage: python proxy.py [down/scan] [4/5/http/all] [file_name]")
+    print("Usage: python proxy.py [down/scan] [4/5/http] [file_name]")
     sys.exit(1)
 
 args = sys.argv[1].lower()
@@ -75,11 +55,11 @@ if args == "down":
     check_list(out_file)
     with open(out_file, 'r') as f:
         proxies = f.readlines()
-    result = f"‣ Number Of Proxies: {len(proxies)}"
+    result = f"\r\n‣ Number Of Proxies: {len(proxies)}"
     end_loading(result)
 elif args == "scan":
     check_socks(proxy_ver,out_file, 3)
 elif args == "help":
     help()
 else:
-    print("Usage: python proxy.py [down/scan/help] [4/5/http/all] [file_name]")
+    print("Usage: python proxy.py [down/scan/help] [4/5/http] [file_name]")
